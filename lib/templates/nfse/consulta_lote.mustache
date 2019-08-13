@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:tem="http://tempuri.org/">
+    <soapenv:Header>
+        <tem:cabecalho versao="202">
+            <tem:versaoDados>2.02</tem:versaoDados>
+        </tem:cabecalho>
+    </soapenv:Header>
+    <soapenv:Body>
+        <tem:ConsultarLoteRps>
+            <tem:xmlEnvio><![CDATA[<?xml version="1.0" encoding="UTF-8"?><ConsultarLoteRpsEnvio><Prestador><CpfCnpj><Cnpj>{{cnpj}}</Cnpj></CpfCnpj><InscricaoMunicipal>{{inscricao_municipal}}</InscricaoMunicipal></Prestador><Protocolo>{{protocolo}}</Protocolo></ConsultarLoteRpsEnvio>]]></tem:xmlEnvio>
+        </tem:ConsultarLoteRps>
+    </soapenv:Body>
+</soapenv:Envelope>
