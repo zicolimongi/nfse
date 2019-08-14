@@ -4,7 +4,8 @@ module Nfse
     module Envio
 
         class Rps < Mustache
-            attr_accessor :numero, :serie, :tipo
+            attr_accessor :numero, :serie, :tipo, 
+                          :prestador, :tomador
 
             def initialize(numero, serie, tipo)
                 self.template_path = File.expand_path("../../templates/", __FILE__)
