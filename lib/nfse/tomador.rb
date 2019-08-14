@@ -10,6 +10,8 @@ module Nfse
 
 
             def initialize(args)
+                self.template_path = File.expand_path("../../templates/", __FILE__)
+                
                 @cnpj = args[:cnpj]
                 @razao_social = args[:razao_social]
                 @endereco = args[:endereco]

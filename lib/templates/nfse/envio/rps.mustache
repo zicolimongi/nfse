@@ -9,59 +9,9 @@
             <Status>1</Status>
         </Rps>
         <Competencia>{{data_competencia}}</Competencia>
-        {{servico}}
-        <Prestador>
-            <CpfCnpj>
-                <Cnpj>{{prestador.cnpj}}</Cnpj>
-            </CpfCnpj>
-            <InscricaoMunicipal>{{prestador.inscricao_municipal}}</InscricaoMunicipal>
-        </Prestador>
-		<Tomador>
-			<IdentificacaoTomador>
-				<CpfCnpj>
-				  {{#tomador.cpf}}
-  				<Cpf>{{tomador.cpf}}</Cpf>
-  				{{/tomador.cpf}}
-  				{{#tomador.cnpj}}
-  				<Cnpj>{{tomador.cnpj}}</Cnpj>
-  				{{/tomador.cnpj}}
-				</CpfCnpj>
-			</IdentificacaoTomador>
-			{{#tomador.razao_social}}
-			<RazaoSocial>{{tomador.razao_social}}</RazaoSocial>
-			{{/tomador.razao_social}}
-			<Endereco>
-			  {{#tomador.endereco}}
-				<Endereco>{{tomador.endereco}}</Endereco>
-			  {{/tomador.endereco}}
-			  {{#tomador.endereco_numero}}
-				<Numero>{{tomador.endereco_numero}}</Numero>
-			  {{/tomador.endereco_numero}}
-			  {{#tomador.complemento}}
-				<Complemento>{{tomador.complemento}}</Complemento>
-			  {{/tomador.complemento}}
-			  {{#tomador.bairro}}
-				<Bairro>{{tomador.bairro}}</Bairro>
-			  {{/tomador.bairro}}
-			  {{#tomador.cod_cidade}}
-				<CodigoMunicipio>{{tomador.cod_cidade}}</CodigoMunicipio>
-			  {{/tomador.cod_cidade}}
-			  {{#tomador.uf}}
-				<Uf>{{tomador.uf}}</Uf>
-			  {{/tomador.uf}}
-			  {{#tomador.cep}}
-				<Cep>{{tomador.cep}}</Cep>
-			  {{/tomador.cep}}
-			</Endereco>
-			<Contato>
-		    {{#tomador.telefone}}
-			  <Telefone>{{tomador.ddd}}{{tomador.telefone}}</Telefone>
-			  {{/tomador.telefone}}
-			  {{#tomador.email}}
-				<Email>{{tomador.email}}</Email>
-			  {{/tomador.email}}
-			</Contato>
-		</Tomador>
+        {{{servico.render}}}
+        {{{prestador.render}}}
+		{{{tomador.render}}}
         <RegimeEspecialTributacao>{{regime_tributacao}}</RegimeEspecialTributacao>
         <OptanteSimplesNacional>{{simples_nacional}}</OptanteSimplesNacional>
         <IncentivoFiscal>{{icentivo_fiscal}}</IncentivoFiscal>

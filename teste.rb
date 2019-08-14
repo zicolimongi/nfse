@@ -17,6 +17,12 @@ tomador = Nfse::Envio::Tomador.new( cnpj: '35606203847', razao_social: 'Reinaldo
                                     telefone: '96838-9078', email: 'reinaldoacdc@gmail.com' )
 
 rps.tomador = tomador
-                                    
+                   
+servico = Nfse::Envio::Servico.new( 1050, 500, 5, 
+                                    '06.01', '12345678', '6.01',
+                                    'prestação de serviços', '3131703' )
+rps.servico = servico
+
+
 lote.add_rps(rps)
 puts lote.render

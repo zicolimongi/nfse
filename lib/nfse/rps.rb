@@ -5,7 +5,7 @@ module Nfse
 
         class Rps < Mustache
             attr_accessor :numero, :serie, :tipo, 
-                          :prestador, :tomador
+                          :prestador, :tomador, :servico
 
             def initialize(numero, serie, tipo)
                 self.template_path = File.expand_path("../../templates/", __FILE__)
