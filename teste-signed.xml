@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:tem="http://tempuri.org/">
+    <soapenv:Header>
+        <tem:cabecalho versao="202">
+            <tem:versaoDados>2.02</tem:versaoDados>
+        </tem:cabecalho>
+    </soapenv:Header>
+    <soapenv:Body>
+        <tem:RecepcionarLoteRps>
+            <tem:xmlEnvio><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<EnviarLoteRpsEnvio>
+    <LoteRps ID="5abc" versao="2.02">
+        <NumeroLote>1</NumeroLote>
+        <CpfCnpj>
+            <Cnpj>02395172000137</Cnpj>
+        </CpfCnpj>
+        <InscricaoMunicipal>12345678</InscricaoMunicipal>
+        <QuantidadeRps>1</QuantidadeRps>
+        <ListaRps>
+            <Rps>
+    <InfDeclaracaoPrestacaoServico>
+        <Rps>
+            <IdentificacaoRps>
+                <Numero>1</Numero>
+                <Serie>1</Serie>
+                <Tipo>2</Tipo>
+            </IdentificacaoRps>    
+            <Status>1</Status>
+        </Rps>
+        <Competencia/>
+        <Servico>
+    <Valores>
+        <ValorServicos>1050</ValorServicos>
+        <ValorDeducoes>0</ValorDeducoes>
+        <ValorPis>0</ValorPis>
+        <ValorCofins>0</ValorCofins>
+        <ValorInss>0</ValorInss>
+        <ValorIr>0</ValorIr>
+        <ValorCsll>0</ValorCsll>
+        <OutrasRetencoes>0</OutrasRetencoes>
+        <ValorIss>500</ValorIss>
+        <Aliquota>5</Aliquota>
+        <DescontoIncondicionado>0</DescontoIncondicionado>
+        <DescontoCondicionado>0</DescontoCondicionado>
+    </Valores>
+    <IssRetido>2</IssRetido>
+    <ItemListaServico>06.01</ItemListaServico>
+    <CodigoCnae>12345678</CodigoCnae>
+    <CodigoTributacaoMunicipio>6.01</CodigoTributacaoMunicipio>
+    <Discriminacao>prestação de serviços</Discriminacao>
+    <CodigoMunicipio>3131703</CodigoMunicipio>
+    <CodigoPais>1058</CodigoPais>
+    <ExigibilidadeISS>1</ExigibilidadeISS>
+    <MunicipioIncidencia>3131703</MunicipioIncidencia>
+</Servico>
+        <Prestador>
+    <CpfCnpj>
+        <Cnpj>02395172000137</Cnpj>
+    </CpfCnpj>
+    <InscricaoMunicipal>12345678</InscricaoMunicipal>
+</Prestador>
+				<Tomador>
+			<IdentificacaoTomador>
+				<CpfCnpj>
+				</CpfCnpj>
+			</IdentificacaoTomador>
+			<Endereco>
+			</Endereco>
+			<Contato>
+			</Contato>
+		</Tomador>
+        <RegimeEspecialTributacao/>
+        <OptanteSimplesNacional/>
+        <IncentivoFiscal/>
+    </InfDeclaracaoPrestacaoServico>
+</Rps>
+        </ListaRps>
+    </LoteRps>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+            <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+            <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+            <Reference URI="#5abc">
+                <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                <DigestValue>O5cuvIpUZSpyyQFhqkoRW+FcKPo=</DigestValue>
+            </Reference>
+        </SignedInfo>
+        <SignatureValue>xFnNqhqFSlbMAnlxBOkPu456e2rly4KrI5bGZT4At+iJL1BwH5MXjykZmcg98EOibbVYSLtB4IF00VnhLsHcRQgoDc1O3WJHXhKcB+wH4QinqFWPjNkNZrCZ/osNX5w+N0ksAGYjJ3Drv/6LgIN6duBNW5cTiCZ/2hKhDdaXkJFDxuNLwUVz28BPY5WLReoKpfkWqRIJKuWmXWbNlYkOn8Dx8n04YVxtlIKIhLN/WBGYClODfRWPvHs0KX1Q8g/FzsDybiUx6lTrVNhTYacfLJXw80NoTqM84Wso/mnmCSz4l6iCY3P7hPTRwfHOShnFnvQNpsZkmFY2TlLb6Lttxg==</SignatureValue>
+        <KeyInfo>
+            <X509Data>
+                <X509Certificate>MIIIAzCCBeugAwIBAgIIA7JXq0bYs8UwDQYJKoZIhvcNAQELBQAwcTELMAkGA1UE
+BhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwxNjA0BgNVBAsTLVNlY3JldGFyaWEg
+ZGEgUmVjZWl0YSBGZWRlcmFsIGRvIEJyYXNpbCAtIFJGQjEVMBMGA1UEAxMMQUMg
+VkFMSUQgUkZCMB4XDTE4MDkxNzE0NTYyNVoXDTE5MDkxNzE0NTYyNVowgeIxCzAJ
+BgNVBAYTAkJSMQswCQYDVQQIEwJTUDESMBAGA1UEBxMJU0FPIFBBVUxPMRMwEQYD
+VQQKEwpJQ1AtQnJhc2lsMTYwNAYDVQQLEy1TZWNyZXRhcmlhIGRhIFJlY2VpdGEg
+RmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxFjAUBgNVBAsTDVJGQiBlLUNOUEogQTEx
+EzARBgNVBAsTCkFSIFBSRU1JRVIxODA2BgNVBAMTL0FWRUMgU0VSVklDT1MgREUg
+VEVDTk9MT0dJQSBMVERBOjE4Mjg1NDIxMDAwMTcxMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA1zcB2qsB/BVzshyt8aaKVGcON42kywacTIOr5kMVgfbX
+x5Xf4aX3LWm8uFlRCXgSIuP8ji7b6fpuhy/Kekxn8N5og/BpRdWd5niGJWNC5M3v
+1T34efr9NQFvQN+N36S2R/7SixwSscJjBTJgmf92jcP4e9/pyOwO1C63QgIYOTI7
+lTcDv9H5Q/RZLFG1+vRjUcUOMN6xatBDQ4c7q5VJi+UHtf6gxtnI3b9i9CXYVIl2
+DFvvFNtPEC9jar32Nk41r38vB9KGMI72ZchvmYcxOyM9oDM8BEtkWOc7fzuzp6HR
+JCThGOgft4PXLdmJHdCmXp9vvs3FwEWbSGSi+9LOPQIDAQABo4IDKzCCAycwgZoG
+CCsGAQUFBwEBBIGNMIGKMFUGCCsGAQUFBzAChklodHRwOi8vaWNwLWJyYXNpbC52
+YWxpZGNlcnRpZmljYWRvcmEuY29tLmJyL2FjLXZhbGlkcmZiL2FjLXZhbGlkcmZi
+djIucDdiMDEGCCsGAQUFBzABhiVodHRwOi8vb2NzcC52YWxpZGNlcnRpZmljYWRv
+cmEuY29tLmJyMAkGA1UdEwQCMAAwHwYDVR0jBBgwFoAUR7kIWdhC9pL893wVfCaA
+SkWRfp8wbgYDVR0gBGcwZTBjBgZgTAECASUwWTBXBggrBgEFBQcCARZLaHR0cDov
+L2ljcC1icmFzaWwudmFsaWRjZXJ0aWZpY2Fkb3JhLmNvbS5ici9hYy12YWxpZHJm
+Yi9kcGMtYWMtdmFsaWRyZmIucGRmMIIBAQYDVR0fBIH5MIH2MFOgUaBPhk1odHRw
+Oi8vaWNwLWJyYXNpbC52YWxpZGNlcnRpZmljYWRvcmEuY29tLmJyL2FjLXZhbGlk
+cmZiL2xjci1hYy12YWxpZHJmYnYyLmNybDBUoFKgUIZOaHR0cDovL2ljcC1icmFz
+aWwyLnZhbGlkY2VydGlmaWNhZG9yYS5jb20uYnIvYWMtdmFsaWRyZmIvbGNyLWFj
+LXZhbGlkcmZidjIuY3JsMEmgR6BFhkNodHRwOi8vcmVwb3NpdG9yaW8uaWNwYnJh
+c2lsLmdvdi5ici9sY3IvVkFMSUQvbGNyLWFjLXZhbGlkcmZidjIuY3JsMA4GA1Ud
+DwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgbcGA1Ud
+EQSBrzCBrIEeZmVyZXMuYmFsYWRpQGF2ZWNicmFzaWwuY29tLmJyoDgGBWBMAQME
+oC8ELTE5MDYxOTkwMzk0ODY1NTI4NjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+MKAcBgVgTAEDAqATBBFGRVJFUyBCQUxBREkgTkVUT6AZBgVgTAEDA6AQBA4xODI4
+NTQyMTAwMDE3MaAXBgVgTAEDB6AOBAwwMDAwMDAwMDAwMDAwDQYJKoZIhvcNAQEL
+BQADggIBAOI6zxRE28hpI24d4w3vNFJeU8eQ+76JjJxi3CZlTL9NIxK+/en3T2R1
+V4gncgNHHb7IeyKdPEwNRofXglKCjSwLY6DxwzvJaCsDcFrtkhrDAed30DUKvj9n
+cr4xG20eS8ncK1dadWXTybcxfqLsY6mCFNoY9qE5biqXcYdXdeu26FfugKBC31O0
+kOODXMtTTkU1Tm/FGuI84SkmktVeGIuXlK1uLmym+z4ULZBxLA1GkIgwBsk0eQEw
+1DgM4jeZvgoeuP9jwG1ZICP+yCbsRDL/wmIfp9FPyJp5544slk/L8re/tk+n2nPy
+cpalAKzu3Ol78O+bWxrC+U7oB7G+rA1eoZGVeuXYEls8BUHaDjoBAL+hZdeLRkIm
+E3gaCk4iXqyUoziPkoi/3GKYlrugscz9UdkzCfiVdqm3K6wEHq91jqs5YhvNy/YX
+QenGqhukF7ZSvwASO8b3QHc40MPXUJ3U+j5R4f4bF9Zcnj3bUZFI/aAa0L5lduB1
+WccM5ROIXFoZy95egAazEbIieyOO7yG7sZOJXG5qmpD73Qdm9x2RvlQnfPjnrQaY
+6AxcsDkShuIBPwtl1kKKwpzFPAnJccz9cgIez8Ucxy8QamOmXn6RzivCySM25TBh
+Z6x0vkI6/eMvP9DHmsq7ivWCn7LIfjX1xxMBrzhV/WaeT3xz0Mqs
+</X509Certificate>
+            </X509Data>
+        </KeyInfo>
+    </Signature>    
+</EnviarLoteRpsEnvio>
+]]></tem:xmlEnvio>
+        </tem:RecepcionarLoteRps>
+    </soapenv:Body>
+</soapenv:Envelope>

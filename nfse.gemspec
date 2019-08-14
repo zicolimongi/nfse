@@ -11,4 +11,6 @@ Gem::Specification.new do |s|
 
     s.add_dependency 'mustache'
     s.add_dependency 'savon'
+    s.add_dependency 'xmldsig'
+    s.add_dependency 'nokogiri'
   end

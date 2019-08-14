@@ -9,6 +9,7 @@ module Nfse
     Envio.autoload(:Servico, './lib/nfse/servico.rb')
     
     autoload(:ConsultaLote, './lib/nfse/consultalote.rb')
+    autoload(:EnviaLote, './lib/nfse/envialote.rb')
 end
 
 
