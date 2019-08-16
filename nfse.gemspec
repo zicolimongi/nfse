@@ -1,16 +1,19 @@
-Gem::Specification.new do |s|
-    s.authors = ["Reinaldo ACDC"]
-    s.name = %q{nfse_gem}
-    s.version = "0.0.0"
-    s.date = %q{2011-09-29}
-    s.summary = %q{nfse_gem is the best}
-    s.files = [
+Gem::Specification.new do |gem|
+    gem.authors = ["Reinaldo ACDC"]
+    gem.name = %q{nfse_gem}
+    gem.version = "0.0.0"
+    gem.date = %q{2011-09-29}
+    gem.summary = %q{nfse_gem is the best}
+    gem.files = [
       "lib/nfse_gem.rb"
     ]
     s.require_paths = ["lib"]
 
-    s.add_dependency 'mustache'
-    s.add_dependency 'savon'
-    s.add_dependency 'xmldsig'
-    s.add_dependency 'nokogiri'
+    gem.add_dependency 'mustache', '~> 0.99'
+    gem.add_dependency 'savon', '~> 2.12.0'
+    gem.add_dependency 'xmldsig', '~> 0.6.6'
+    
+    gem.add_dependency "nokogiri", "~> 1.8"
+    gem.add_dependency "prawn", "~> 1.2"
+    gem.add_dependency "prawn-table", "~> 0.2"    
   end
