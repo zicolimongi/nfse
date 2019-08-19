@@ -1,4 +1,7 @@
-$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)))
+require 'mustache'
+require 'savon'
+require 'xmldsig'
+require 'nokogiri'
 
 module Nfse
     Envio = Module.new
@@ -15,7 +18,7 @@ module Nfse
     Pdf.autoload(:XML, './lib/danfe/xml.rb')
     Pdf.autoload(:DanfseGenerator, './lib/danfe/danfse_generator.rb')
 
-
+    autoload(:Base, './lib/nfse/base.rb')
     autoload(:ConsultaLote, './lib/nfse/consultalote.rb')
     autoload(:EnviaLote, './lib/nfse/envialote.rb')
 end

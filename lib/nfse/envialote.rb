@@ -1,22 +1,18 @@
-require 'mustache'
-require 'savon'
-require 'xmldsig'
-require 'nokogiri'
-
 module Nfse
 
     class EnviaLote < Mustache
-        attr_accessor :wsdl, :xml_lote
+        attr_accessor :code_ibge, :xml_lote
 
-        def initialize(wsdl, xml_lote)
+        def initialize(code_ibge, xml_lote)
            self.template_path = File.expand_path("../../templates/", __FILE__)
 
-            @wsdl = wsdl
+            @code_ibge = code_ibge
             @xml_lote = xml_lote
         end
 
         def enviar_lote_rps()
-            client = Savon.client(wsdl: @wsdl)   
+            wsdl = get_wsdl[@code_ibge]
+            client = Savon.client(wsdl: wsdl)   
 
             self.xml_lote = self.assinar_xml(self.xml_lote.render, 'cert.pem')        
             puts self.render

@@ -1,22 +1,21 @@
-require 'mustache'
-require 'savon'
 module Nfse
 
-    class ConsultaLote < Mustache
-        attr_accessor :wsdl, :cnpj, :inscricao_municipal, :protocolo
+    class ConsultaLote < Base
+        attr_accessor :code_ibge, :cnpj, :inscricao_municipal, :protocolo
 
 
-        def initialize(wsdl, cnpj, inscricao_municipal, protocolo)
+        def initialize(code_ibge, cnpj, inscricao_municipal, protocolo)
             self.template_path = File.expand_path("../../templates/", __FILE__)
             
-            @wsdl = wsdl
+            @code_ibge = code_ibge
             @cnpj = cnpj
             @inscricao_municipal = inscricao_municipal
             @protocolo = protocolo
         end
 
         def consultar()
-            client = Savon.client(wsdl: @wsdl)            
+            wsdl = get_wsdl[@code_ibge]
+            client = Savon.client(wsdl: wsdl)            
             xml = self.render
             response = client.call(:consultar_lote_rps, xml: xml)
             data = response.body

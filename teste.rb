@@ -1,6 +1,6 @@
 require 'nfse_gem'
 
-xml = File.read("nfse.xml")
+wsdl = 'http://servicosweb.itabira.mg.gov.br:90/NFSe.Portal.Integracao.Teste/Services.svc?singleWsdl'
+consulta_lote = Nfse::ConsultaLote.new('3131703', '12345678901234', '12345678', '111111')
 
-danfe = Nfse::Pdf::DanfseGenerator.new(xml)
-danfe.generatePDF("arquivo.pdf")
+puts consulta_lote.consultar()
