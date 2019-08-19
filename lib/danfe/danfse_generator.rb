@@ -23,7 +23,10 @@ module Pdf
 
     attr_reader :municipios
 
-
+    def municipios
+      lib_path = File.expand_path("../../", __FILE__)
+      @municipios ||= JSON.parse(File.read(File.join(lib_path, 'municipios.json')))
+    end
 
     def generatePDF(pdf_path)      
       render_titulo
@@ -39,7 +42,7 @@ module Pdf
     private
     def render_titulo
       @pdf.ibox 2.55, 16.10, 0.25, 0.42, '',
-        "PREFEITURA DO MUNICÍPIO DE ITABIRA \n" +
+        "PREFEITURA DO MUNICÍPIO DE #{municipios[@xml['InfNfse/PrestadorServico/Endereco/CodigoMunicipio']].upcase} \n" +
         "Secretaria Municipal da Fazenda \n" +
         "NOTA FISCAL ELETRÔNICA DE SERVIÇOS - NFS-e \n" +
         "RPS n° #{@xml['IdentificacaoRps/Numero']}, emitido em #{@xml['DataEmissaoRps']}", {:align => :center, :valign => :center}
@@ -56,7 +59,7 @@ module Pdf
       @pdf.ibox 0.85, 12,    0.25, 4.67, "CPF/CNPJ", "#{@xml['PrestadorServico/IdentificacaoPrestador/Cnpj'] || @xml['PrestadorServico/IdentificacaoPrestador/Cpf']}", {border: 0}
       @pdf.ibox 0.85, 4.47,  12,   4.67, "Inscrição Municipal", "#{@xml['IdentificacaoPrestador/InscricaoMunicipal']}", {border: 0}
       @pdf.ibox 0.85, 20.57, 0.25, 5.52, "Endereço", "#{@xml['PrestadorServico/Endereco/Endereco']}", {border: 0}
-      #@pdf.ibox 0.85, 10,    0.25, 6.37, "Município", "#{municipios[@xml['PrestadorServico/Endereco/CodigoMunicipio']]}", {border: 0}
+      @pdf.ibox 0.85, 10,    0.25, 6.37, "Município", "#{municipios[@xml['PrestadorServico/Endereco/CodigoMunicipio']]}", {border: 0}
       @pdf.ibox 0.85, 4.47,  10,   6.37, "UF", "#{@xml['PrestadorServico/Endereco/Uf']}", {border: 0}
       @pdf.ibox 0.85, 4.47,  15,   6.37, "E-mail", "#{@xml['PrestadorServico/Contato/Email']}", {border: 0}
     end
@@ -68,7 +71,7 @@ module Pdf
       @pdf.ibox 0.85, 12,    0.25, 8.92, "CPF/CNPJ", "#{@xml['TomadorServico/IdentificacaoTomador/CpfCnpj/Cnpj'] || @xml['TomadorServico/IdentificacaoTomador/CpfCnpj/Cpf']}", {border: 0}
       @pdf.ibox 0.85, 4.47,  12,   8.92, "Inscrição Municipal", "#{@xml['IdentificacaoTomador/InscricaoMunicipal']}", {border: 0}
       @pdf.ibox 0.85, 20.57, 0.25, 9.77, "Endereço", "#{@xml['TomadorServico/Endereco/Endereco']}", {border: 0}
-      #@pdf.ibox 0.85, 10,    0.25, 10.62, "Município", "#{municipios[@xml['TomadorServico/Endereco/CodigoMunicipio']]}", {border: 0}
+      @pdf.ibox 0.85, 10,    0.25, 10.62, "Município", "#{municipios[@xml['TomadorServico/Endereco/CodigoMunicipio']]}", {border: 0}
       @pdf.ibox 0.85, 4.47,  10,   10.62, "UF", "#{@xml['TomadorServico/Endereco/Uf']}", {border: 0}
       @pdf.ibox 0.85, 4.47,  15,   10.62, "E-mail", "#{@xml['TomadorServico/Contato/Email']}", {border: 0}
     end
@@ -100,7 +103,7 @@ module Pdf
       @pdf.ibox 0.85, 3.46,  7.17,  25.07, "Alíquota", @xml['Servico/Valores/Aliquota']
       @pdf.inumeric 0.85, 3.46,  10.63, 25.07, "Valor do ISS", @xml['Servico/Valores/ValorIss']
       @pdf.inumeric 0.85, 6.73,  14.09, 25.07, "Crédito", @xml['InfNfse/ValorCredito']
-      #@pdf.ibox 0.85, 10.38, 0.25,  25.92, "Muncípio da Prestação do Serviço", municipios[@xml['OrgaoGerador/CodigoMunicipio']], :style => :bold
+      @pdf.ibox 0.85, 10.38, 0.25,  25.92, "Muncípio da Prestação do Serviço", municipios[@xml['OrgaoGerador/CodigoMunicipio']], :style => :bold
       @pdf.ibox 0.85, 10.19, 10.63, 25.92, "Número Inscrição da Obra", @xml['DadosConstrucaoCivil/CodigoObra'], :style => :bold
     end
 

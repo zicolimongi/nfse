@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
     gem.files = [
       "lib/nfse_gem.rb"
     ]
-    s.require_paths = ["lib"]
+    gem.require_paths = ["lib"]
 
     gem.add_dependency 'mustache', '~> 0.99'
     gem.add_dependency 'savon', '~> 2.12.0'
