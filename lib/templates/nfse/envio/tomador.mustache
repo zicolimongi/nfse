@@ -1,46 +1,47 @@
 		<Tomador>
 			<IdentificacaoTomador>
 				<CpfCnpj>
-				  {{#tomador.cpf}}
-  				<Cpf>{{tomador.cpf}}</Cpf>
-  				{{/tomador.cpf}}
-  				{{#tomador.cnpj}}
-  				<Cnpj>{{tomador.cnpj}}</Cnpj>
-  				{{/tomador.cnpj}}
+					{{#cnpj}}
+	  				<Cnpj>{{cnpj}}</Cnpj>  				
+					{{/cnpj}}
+
+					{{#cpf}}
+	  				<Cpf>{{cpf}}</Cpf>  				
+					{{/cpf}}					
 				</CpfCnpj>
 			</IdentificacaoTomador>
-			{{#tomador.razao_social}}
-			<RazaoSocial>{{tomador.razao_social}}</RazaoSocial>
-			{{/tomador.razao_social}}
+			{{#razao_social}}
+			<RazaoSocial>{{razao_social}}</RazaoSocial>
+			{{/razao_social}}
 			<Endereco>
-			  {{#tomador.endereco}}
-				<Endereco>{{tomador.endereco}}</Endereco>
-			  {{/tomador.endereco}}
-			  {{#tomador.endereco_numero}}
-				<Numero>{{tomador.endereco_numero}}</Numero>
-			  {{/tomador.endereco_numero}}
-			  {{#tomador.complemento}}
-				<Complemento>{{tomador.complemento}}</Complemento>
-			  {{/tomador.complemento}}
-			  {{#tomador.bairro}}
-				<Bairro>{{tomador.bairro}}</Bairro>
-			  {{/tomador.bairro}}
-			  {{#tomador.cod_cidade}}
-				<CodigoMunicipio>{{tomador.cod_cidade}}</CodigoMunicipio>
-			  {{/tomador.cod_cidade}}
-			  {{#tomador.uf}}
-				<Uf>{{tomador.uf}}</Uf>
-			  {{/tomador.uf}}
-			  {{#tomador.cep}}
-				<Cep>{{tomador.cep}}</Cep>
-			  {{/tomador.cep}}
+			  {{#endereco}}
+				<Endereco>{{endereco}}</Endereco>
+			  {{/endereco}}
+			  {{#endereco_numero}}
+				<Numero>{{endereco_numero}}</Numero>
+			  {{/endereco_numero}}
+			  {{#complemento}}
+				<Complemento>{{complemento}}</Complemento>
+			  {{/complemento}}
+			  {{#bairro}}
+				<Bairro>{{bairro}}</Bairro>
+			  {{/bairro}}
+			  {{#cod_cidade}}
+				<CodigoMunicipio>{{cod_cidade}}</CodigoMunicipio>
+			  {{/cod_cidade}}
+			  {{#uf}}
+				<Uf>{{uf}}</Uf>
+			  {{/uf}}
+			  {{#cep}}
+				<Cep>{{cep}}</Cep>
+			  {{/cep}}
 			</Endereco>
 			<Contato>
-		    {{#tomador.telefone}}
-			  <Telefone>{{tomador.ddd}}{{tomador.telefone}}</Telefone>
-			  {{/tomador.telefone}}
-			  {{#tomador.email}}
-				<Email>{{tomador.email}}</Email>
-			  {{/tomador.email}}
+		    {{#telefone}}
+			  <Telefone>{{ddd}}{{telefone}}</Telefone>
+			  {{/telefone}}
+			  {{#email}}
+				<Email>{{email}}</Email>
+			  {{/email}}
 			</Contato>
 		</Tomador>

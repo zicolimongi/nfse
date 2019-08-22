@@ -7,8 +7,6 @@
 ```
 require 'nfse_gem'
 
-wsdl = 'http://servicosweb.itabira.mg.gov.br:90/NFSe.Portal.Integracao.Teste/Services.svc?singleWsdl'
-
 lote = Nfse::Envio::Lote.new( '5abc', 1, '02395172000137', '12345678', 1)
 rps = Nfse::Envio::Rps.new(1, 1, 2)
 
@@ -20,9 +18,13 @@ tomador = Nfse::Envio::Tomador.new( cnpj: '35606203847', razao_social: 'Reinaldo
                                     cod_cidade: '3550308', uf: 'SP',
                                     telefone: '96838-9078', email: 'reinaldoacdc@gmail.com' )
                  
-servico = Nfse::Envio::Servico.new( 1050, 500, 5, 
-                                    '06.01', '12345678', '6.01',
-                                    'prestação de serviços', '3131703' )
+servico = Nfse::Envio::Servico.new( valor_total: 1050, 
+                                    valor_imposto: 500, 
+                                    aliquota: 5, 
+                                    codigo_servico: '06.01', 
+                                    codigo_cnae: '12345678', 
+                                    codigo_tributacao: '6.01',
+                                    descricao_servico: 'prestação de serviços', codigo_municipio: '3131703' )
 
 
 rps.prestador = prestador

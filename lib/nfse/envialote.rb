@@ -1,6 +1,8 @@
+require 'xmldsig'
+
 module Nfse
 
-    class EnviaLote < Mustache
+    class EnviaLote < Base
         attr_accessor :code_ibge, :xml_lote
 
         def initialize(code_ibge, xml_lote)
@@ -15,7 +17,6 @@ module Nfse
             client = Savon.client(wsdl: wsdl)   
 
             self.xml_lote = self.assinar_xml(self.xml_lote.render, 'cert.pem')        
-            puts self.render
             export_xml(self.render, 'teste-signed.xml')
             response = client.call(:recepcionar_lote_rps, xml: self.render)
             data = response.body
@@ -39,7 +40,7 @@ module Nfse
          
         def sign_xml(unsigned_xml, pem_file)
           private_key = OpenSSL::PKey::RSA.new(File.read(pem_file))
-          unsigned_document = Xmldsig::SignedDocument.new(unsigned_xml)
+          unsigned_document = Xmldsig::SignedDocument.new(unsigned_xml, id_attr: "Id")
           unsigned_document.sign(private_key)
         end
          
@@ -61,9 +62,5 @@ module Nfse
           File.write(xml_file, xml_text)
         end
       
-
-
-
-
     end
 end

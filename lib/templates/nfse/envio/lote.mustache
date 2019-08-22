@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnviarLoteRpsEnvio>
-    <LoteRps ID="{{id}}" versao="2.02">
+    <LoteRps Id="{{id}}-lot" versao="2.02">
         <NumeroLote>{{numero_lote}}</NumeroLote>
         <CpfCnpj>
             <Cnpj>{{cnpj}}</Cnpj>
@@ -15,7 +15,7 @@
         <SignedInfo>
             <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
             <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-            <Reference URI="#{{id}}">
+            <Reference URI="#assinar">
                 <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
                 <DigestValue>{{{digest_value}}}</DigestValue>
             </Reference>
