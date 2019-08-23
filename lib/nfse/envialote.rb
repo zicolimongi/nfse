@@ -18,7 +18,8 @@ module Nfse
 
             self.xml_lote = self.assinar_xml(self.xml_lote.render, 'cert.pem')        
             export_xml(self.render, 'teste-signed.xml')
-            response = client.call(:recepcionar_lote_rps, xml: self.render)
+            response = client.call(:enviar_lote_rps_sincrono, xml: self.render)
+            
             data = response.body
             #puts data
             return data[:recepcionar_lote_rps_response][:recepcionar_lote_rps_result]                
