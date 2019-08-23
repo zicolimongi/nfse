@@ -4,10 +4,11 @@ Gem::Specification.new do |gem|
     gem.version = "0.0.0"
     gem.date = %q{2011-09-29}
     gem.summary = %q{nfse_gem is the best}
-    gem.files = [
-      "lib/nfse_gem.rb"
-    ]
-    gem.require_paths = ["lib"]
+    gem.files = ["./lib/nfse_gem.rb"]
+    gem.files += Dir['./lib/nfse/*.rb']
+    gem.files += Dir['./lib/templates/**/*.mustache']
+    gem.require_paths = ["./lib"]
+
 
     gem.add_dependency 'mustache', '~> 0.99'
     gem.add_dependency 'savon', '~> 2.12.0'
