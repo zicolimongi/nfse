@@ -24,12 +24,12 @@ module Nfse
                 @telefone = args[:telefone]
                 @email = args[:email]
 
-                self.cpf_cnpj()
+                self.formatted_doc()
             end
 
-            def cpf_cnpj
+            def formatted_doc
                 doc = @cpf_cnpj
-                doc = doc.tr('.', '').tr('-', '')
+                doc = doc.tr('.', '').tr('-', '').tr('/', '')
                 
                 if doc.length == 14
                     @cnpj = doc
@@ -37,6 +37,14 @@ module Nfse
                     @cpf = doc
                 end
             end 
+
+            def has_address?
+                [@endereco, @endereco_numero, @bairro, @cod_cidade, @uf, @cep].all?
+            end
+
+            def has_contact?
+                [@telefone, @email].any?
+            end
         end
 
     end

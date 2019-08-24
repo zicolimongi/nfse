@@ -13,6 +13,7 @@
 			{{#razao_social}}
 			<RazaoSocial>{{razao_social}}</RazaoSocial>
 			{{/razao_social}}
+			{{#has_address?}}
 			<Endereco>
 			  {{#endereco}}
 				<Endereco>{{endereco}}</Endereco>
@@ -36,6 +37,8 @@
 				<Cep>{{cep}}</Cep>
 			  {{/cep}}
 			</Endereco>
+			{{/has_address?}}
+			{{#has_contact?}}
 			<Contato>
 		    {{#telefone}}
 			  <Telefone>{{ddd}}{{telefone}}</Telefone>
@@ -44,4 +47,5 @@
 				<Email>{{email}}</Email>
 			  {{/email}}
 			</Contato>
+			{{/has_contact?}}
 		</Tomador>
