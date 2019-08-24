@@ -12,7 +12,7 @@ rps = Nfse::Envio::Rps.new(1, 1, 2)
 
 prestador = Nfse::Envio::Prestador.new('02395172000137', '12345678', 'Razao Social')
 
-tomador = Nfse::Envio::Tomador.new( cnpj: '35606203847', razao_social: 'Reinaldo',
+tomador = Nfse::Envio::Tomador.new( cpf_cnpj: '35606203847', razao_social: 'Reinaldo',
                                     endereco: 'Rua dos Figos', endereco_numero: '96',
                                     complemento: 'N/A', bairro: 'Vila Maria', 
                                     cod_cidade: '3550308', uf: 'SP',
