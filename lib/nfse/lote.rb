@@ -8,13 +8,21 @@ module Nfse
 
             def initialize(args)
                 self.template_path = File.expand_path("../../templates/", __FILE__)
-                
+                args = defaults.merge(args)
+
                 @lista_rps = []
                 @id = args[:id]
                 @numero_lote = args[:numero_lote]
                 @cnpj = args[:cnpj]
-                @inscricao_municipal = args[:inscricao_municipal]
-                @quantidade = args[:quantidade]
+                @inscricao_municipal = args[:inscricao_municipal]                
+            end
+
+            def quantidade
+                @quantidade = @lista_rps.size
+            end
+
+            def defaults
+                {id: 'sign-lote'}
             end
 
             def add_rps(rps)

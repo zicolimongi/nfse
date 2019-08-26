@@ -12,7 +12,7 @@ lote = Nfse::Envio::Lote.new( id: '5abc',
                               cnpj: '02395172000137', 
                               inscricao_municipal: '12345678', 
                               quantidade: 1)
-rps = Nfse::Envio::Rps.new(1, 1, 2)
+rps = Nfse::Envio::Rps.new(numero: 1, serie: 1, tipo: 2)
 
 prestador = Nfse::Envio::Prestador.new( 
                               cnpj: '12345678901234', 
