@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
     gem.files = ["./lib/nfse_gem.rb"]
     gem.files += Dir['./lib/nfse/*.rb']
     gem.files += Dir['./lib/templates/**/*.mustache']
+    gem.files += ["./cert.pem"]
     gem.require_paths = ["./lib"]
 
 

@@ -22,7 +22,7 @@ module Nfse
             end
 
             def defaults
-                {id: 'sign-lote'}
+                {id: 'assinar'}
             end
 
             def add_rps(rps)

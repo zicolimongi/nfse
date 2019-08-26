@@ -78,6 +78,6 @@ danfe.generatePDF("arquivo.pdf")
 ```
 
 # TO-DO 
-
+ - Carregar certificado
  - Evento de Cancelamento
  - Suportar mais provedores

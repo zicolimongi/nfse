@@ -24,7 +24,7 @@ module Nfse
 
             #1.500,20 => 1500.20
             def formatted_value(value)
-                return value.sub('.', '').sub(',', '.')
+                return value
             end
         end        
 

@@ -3,34 +3,43 @@ require 'xmldsig'
 module Nfse
 
     class EnviaLote < Base
-        attr_accessor :code_ibge, :xml_lote
+        attr_accessor :code_ibge, :lote, :xml_lote
 
-        def initialize(code_ibge, xml_lote)
+        def initialize(code_ibge, lote)
            self.template_path = File.expand_path("../../templates/", __FILE__)
 
             @code_ibge = code_ibge
-            @xml_lote = xml_lote
+            @lote = lote
         end
 
         def enviar_lote_rps()
             wsdl = get_wsdl[@code_ibge]
             client = Savon.client(wsdl: wsdl)   
+            @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')        
 
-            self.xml_lote = self.assinar_xml(self.xml_lote.render, 'cert.pem')        
-            export_xml(self.render, 'teste-signed.xml')
+            #export_xml(self.render, 'teste-signed.xml')
             response = client.call(:enviar_lote_rps_sincrono, xml: self.render)
-            
             data = response.body
-            #puts data
-            return data[:recepcionar_lote_rps_response][:recepcionar_lote_rps_result]                
+            
+            puts data
+            data = data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
+
+            #Tratar retorno com erros
+            xml = Nokogiri::XML(data)
+            if xml.xpath("//MensagemRetorno").empty?
+              return data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
+            else
+              puts data
+              return nil
+            end
+
+            return data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
         end
     
         def assinar_xml(xml_original, certificado)
             xml = sign_xml(xml_original, certificado)        
             xml = add_cert_to_xml(xml, certificado, "//ds:Signature/ds:KeyInfo/ds:X509Data/ds:X509Certificate")
-            #export_xml(xml, 'teste-signed.xml')
-            return xml
-            
+            return xml            
         end
 
         private
