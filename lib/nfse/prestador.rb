@@ -6,12 +6,12 @@ module Nfse
         class Prestador < Mustache
             attr_accessor :cnpj, :inscricao_municipal, :razao_social
             
-            def initialize(cnpj, inscricao_municipal, razao_social)
+            def initialize(args)
                 self.template_path = File.expand_path("../../templates/", __FILE__)
 
-                @cnpj = cnpj
-                @inscricao_municipal = inscricao_municipal
-                @razao_social = razao_social
+                @cnpj = args[:cnpj]
+                @inscricao_municipal = args[:inscricao_municipal]
+                @razao_social = args[:razao_social]
             end
         end
 

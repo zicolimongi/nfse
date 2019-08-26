@@ -7,10 +7,17 @@
 ```
 require 'nfse_gem'
 
-lote = Nfse::Envio::Lote.new( '5abc', 1, '02395172000137', '12345678', 1)
+lote = Nfse::Envio::Lote.new( id: '5abc', 
+                              numero_lote: 1, 
+                              cnpj: '02395172000137', 
+                              inscricao_municipal: '12345678', 
+                              quantidade: 1)
 rps = Nfse::Envio::Rps.new(1, 1, 2)
 
-prestador = Nfse::Envio::Prestador.new('02395172000137', '12345678', 'Razao Social')
+prestador = Nfse::Envio::Prestador.new( 
+                              cnpj: '12345678901234', 
+                              inscricao_municipal: '12345678', 
+                              razao_socuia: 'RazaoSocial')
 
 tomador = Nfse::Envio::Tomador.new( cpf_cnpj: '35606203847', razao_social: 'Reinaldo',
                                     endereco: 'Rua dos Figos', endereco_numero: '96',

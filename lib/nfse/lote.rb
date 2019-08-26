@@ -6,15 +6,15 @@ module Nfse
         class Lote < Mustache
             attr_accessor :id, :numero_lote, :cnpj, :inscricao_municipal, :quantidade, :lista_rps
 
-            def initialize(id, numero_lote, cnpj, inscricao_municipal, quantidade)
+            def initialize(args)
                 self.template_path = File.expand_path("../../templates/", __FILE__)
                 
                 @lista_rps = []
-                @id = id
-                @numero_lote = numero_lote
-                @cnpj = cnpj
-                @inscricao_municipal = inscricao_municipal
-                @quantidade = quantidade
+                @id = args[:id]
+                @numero_lote = args[:numero_lote]
+                @cnpj = args[:cnpj]
+                @inscricao_municipal = args[:inscricao_municipal]
+                @quantidade = args[:quantidade]
             end
 
             def add_rps(rps)
