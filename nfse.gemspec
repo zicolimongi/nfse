@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
     gem.version = "0.0.0"
     gem.date = %q{2019-08-27}
     gem.summary = %q{Gem para emissão de notas fiscais}
-    gem.files = ["./lib/nfse.rb"]
+    gem.files = ["./lib/nfse_gem.rb"]
     gem.files += Dir['./lib/nfse/*.rb']
     gem.files += Dir['./lib/templates/**/*.mustache']
     gem.require_paths = ["./lib"]
