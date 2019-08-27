@@ -1,9 +1,9 @@
 Gem::Specification.new do |gem|
     gem.authors = ["Reinaldo ACDC"]
-    gem.name = %q{nfse_gem}
+    gem.name = %q{nfse}
     gem.version = "0.0.0"
-    gem.date = %q{2011-09-29}
-    gem.summary = %q{nfse_gem is the best}
+    gem.date = %q{2019-08-27}
+    gem.summary = %q{Gem para emissão de notas fiscais}
     gem.files = ["./lib/nfse_gem.rb"]
     gem.files += Dir['./lib/nfse/*.rb']
     gem.files += Dir['./lib/templates/**/*.mustache']
