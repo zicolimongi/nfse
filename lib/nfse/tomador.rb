@@ -45,6 +45,10 @@ module Nfse
             def has_contact?
                 [@telefone, @email].any?
             end
+
+            def complemento
+                if @complemento.empty? then nil else @complemento end
+            end
         end
 
     end
