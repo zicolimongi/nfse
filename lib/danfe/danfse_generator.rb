@@ -36,7 +36,7 @@ module Pdf
       render_discriminacao
       render_valor_total
       render_outras
-      @pdf.render_file pdf_path
+      return @pdf.render
     end
 
     private
