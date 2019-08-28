@@ -27,13 +27,12 @@ module Nfse
             #Tratar retorno com erros
             xml = Nokogiri::XML(data)
             if xml.xpath("//MensagemRetorno").empty?
-              return data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
+              return data
             else
               puts data
               return nil
             end
 
-            return data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
         end
     
         def assinar_xml(xml_original, certificado)
