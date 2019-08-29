@@ -1,7 +1,9 @@
+require File.expand_path('../lib/version', __FILE__)
+
 Gem::Specification.new do |gem|
     gem.authors = ["Reinaldo ACDC"]
     gem.name = %q{nfse}
-    gem.version = "0.0.0"
+    gem.version = Nfse::Version::CURRENT
     gem.date = %q{2019-08-27}
     gem.summary = %q{Gem para emissão de notas fiscais}
     gem.files = ["./lib/nfse_gem.rb"]

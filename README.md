@@ -1,8 +1,8 @@
-# Modo de uso 
+# How to use 
 
-## Envio da Nfse
+## How send Nfse
 
-#### Criação do Lote RPS
+#### Create  a RPS
 
 ```
 require 'nfse_gem'
@@ -41,7 +41,7 @@ rps.servico = servico
 lote.add_rps(rps)
 
 ```
-#### Envio do Lote
+#### Send Nfse
 
 ``` 
 enviar_lote = Nfse::EnviaLote.new('3131703', lote)
@@ -51,7 +51,7 @@ puts str
 ```
 
 
-## Consulta do Protocolo
+## Consult Nfse Status
 
 ```
 require 'nfse_gem'
@@ -66,18 +66,22 @@ puts consulta_lote.consultar()
 
 
 
-# Geração do Pdf
+# Generate Pdf File
 
 ```
 require 'nfse_gem'
 
-xml = File.read("nfse.xml")
+xml = File.read("nfe.xml")
 
-danfe = Nfse::Pdf::DanfseGenerator.new(xml)
-danfe.generatePDF("arquivo.pdf")
+danfe = Nfse::Pdf::DanfseGenerator.new(xml.to_s)
+pdf = danfe.generatePDF
+
+File.open('arquivo.pdf', 'w:binary') do |out|
+    out.write(pdf)
+  end
 ```
 
 # TO-DO 
- - Carregar certificado
- - Evento de Cancelamento
- - Suportar mais provedores
+ -Load Certificate
+ - CancelarNfse Event
+ - Suportar more Providers
