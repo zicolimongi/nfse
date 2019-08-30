@@ -12,8 +12,15 @@ lote = Nfse::Envio::Lote.new( id: '5abc',
                               cnpj: '02395172000137', 
                               inscricao_municipal: '12345678', 
                               quantidade: 1)
-rps = Nfse::Envio::Rps.new(numero: 1, serie: 1, tipo: 2)
 
+rps = Nfse::Envio::Rps.new(numero: nf_number, 
+                                serie: 1, 
+                                tipo: 2,
+                                data_emissao: '2019-06-29', 
+                                data_competencia: '2019-06-29',
+                                icentivo_fiscal: '2', 
+                                simples_nacional: '1')
+                                
 prestador = Nfse::Envio::Prestador.new( 
                               cnpj: '12345678901234', 
                               inscricao_municipal: '12345678', 
@@ -25,13 +32,14 @@ tomador = Nfse::Envio::Tomador.new( cpf_cnpj: '35606203847', razao_social: 'Rein
                                     cod_cidade: '3550308', uf: 'SP',
                                     telefone: '96838-9078', email: 'reinaldoacdc@gmail.com' )
                  
-servico = Nfse::Envio::Servico.new( valor_total: 1050, 
-                                    valor_imposto: 500, 
-                                    aliquota: 5, 
-                                    codigo_servico: '06.01', 
-                                    codigo_cnae: '12345678', 
-                                    codigo_tributacao: '6.01',
-                                    descricao_servico: 'prestação de serviços', codigo_municipio: '3131703' )
+servico = Nfse::Envio::Servico.new( valor_total: 1, 
+                                    valor_imposto: 0, 
+                                    aliquota: 0, 
+                                    codigo_servico: '01.07', 
+                                    codigo_cnae: '6202300',
+                                    codigo_tributacao: '6209100',
+                                    descricao_servico: 'prestação de serviços', 
+                                    codigo_municipio: '3131703' )
 
 
 rps.prestador = prestador

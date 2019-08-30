@@ -20,10 +20,10 @@ module Nfse
             #export_xml(self.render, 'teste-signed.xml')
             response = client.call(:enviar_lote_rps_sincrono, xml: self.render)
             data = response.body
-            
-            puts data
-            data = data[:enviar_lote_rps_sincrono_response][:enviar_lote_rps_sincrono_result]                
 
+            puts data
+            data = data[:enviar_lote_rps_sincrono_response]                
+            data = data[:enviar_lote_rps_sincrono_result]
             #Tratar retorno com erros
             xml = Nokogiri::XML(data)
             if xml.xpath("//MensagemRetorno").empty?
