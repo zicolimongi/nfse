@@ -30,6 +30,7 @@ tomador = Nfse::Envio::Tomador.new( cpf_cnpj: '35606203847', razao_social: 'Rein
                                     endereco: 'Rua dos Figos', endereco_numero: '96',
                                     complemento: 'N/A', bairro: 'Vila Maria', 
                                     cod_cidade: '3550308', uf: 'SP',
+                                    cep: '021.42-050',
                                     telefone: '96838-9078', email: 'reinaldoacdc@gmail.com' )
                  
 servico = Nfse::Envio::Servico.new( valor_total: 1, 
