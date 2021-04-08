@@ -17,7 +17,7 @@ module Nfse
             client = Savon.client(wsdl: wsdl)   
             @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')        
 
-            #export_xml(self.render, 'teste-signed.xml')
+            export_xml(self.render, 'teste-signed.xml')
             response = client.call(:enviar_lote_rps_sincrono, xml: self.render)
             data = response.body
 
