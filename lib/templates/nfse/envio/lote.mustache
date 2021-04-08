@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnviarLoteRpsEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">
-    <LoteRps Id="{{id}}" versao="2.02">
+    <LoteRps Id="{{id}}" versao="1.00">
         <NumeroLote>{{numero_lote}}</NumeroLote>
         <Cnpj>{{cnpj}}</Cnpj>
         <InscricaoMunicipal>{{inscricao_municipal}}</InscricaoMunicipal>
@@ -9,11 +9,14 @@
             {{{render_rps}}}
         </ListaRps>
     </LoteRps>
-    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="Ass_{{id}}">
         <SignedInfo>
             <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
             <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-            <Reference URI="#assinar">
+            <Reference URI="#{{id}}">
+                <Transforms>
+					<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></Transform>
+				</Transforms>
                 <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
                 <DigestValue>{{{digest_value}}}</DigestValue>
             </Reference>

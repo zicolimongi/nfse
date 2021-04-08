@@ -1,17 +1,20 @@
 <Rps>
-    <InfDeclaracaoPrestacaoServico Id="assinar">
-            <IdentificacaoRps>
-                <Numero>{{numero}}</Numero>
-                <Serie>{{serie}}</Serie>
-                <Tipo>{{tipo}}</Tipo>
-            </IdentificacaoRps>    
-            <DataEmissao>{{data_emissao}}</DataEmissao>
-            <Status>1</Status>
+    <InfRps Id="assinar">
+        <IdentificacaoRps>
+            <Numero>{{numero}}</Numero>
+            <Serie>{{serie}}</Serie>
+            <Tipo>{{tipo}}</Tipo>
+        </IdentificacaoRps>    
+        <DataEmissao>{{data_emissao}}</DataEmissao>
+        <NaturezaOperacao>1</NaturezaOperacao>
+        <RegimeEspecialTributacao>6</RegimeEspecialTributacao>
+        <OptanteSimplesNacional>{{simples_nacional}}</OptanteSimplesNacional>
+        <IncentivadorCultural>2</IncentivadorCultural>
+        <IncentivoFiscal>{{icentivo_fiscal}}</IncentivoFiscal>
+        <Status>1</Status>
         <Competencia>{{data_competencia}}</Competencia>
         {{{servico.render}}}
         {{{prestador.render}}}
-		{{{tomador.render}}}        
-        <OptanteSimplesNacional>{{simples_nacional}}</OptanteSimplesNacional>
-        <IncentivoFiscal>{{icentivo_fiscal}}</IncentivoFiscal>
-    </InfDeclaracaoPrestacaoServico>
+		{{{tomador.render}}}
+    </InfRps>
 </Rps>
