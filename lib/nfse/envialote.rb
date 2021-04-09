@@ -19,8 +19,8 @@ module Nfse
               ssl_cert: OpenSSL::X509::Certificate.new(File.read('certificate.pem')), 
               ssl_cert_key: OpenSSL::PKey::RSA.new(File.read('server.key'))
             ) 
-            @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')
             binding.pry
+            @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')
             export_xml(self.render, 'teste-signed.xml')
             response = client.call(:recepcionar_lote_rps, xml: self.render)
             data = response.body
