@@ -13,17 +13,21 @@ module Nfse
         end
 
         def enviar_lote_rps()
-            wsdl = get_wsdl[@code_ibge]
-            client = Savon.client(wsdl: wsdl)   
-            @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')        
+            wsdl = get_wsdl[@code_ibge]          
+            client = Savon.client(
+              wsdl: wsdl, 
+              ssl_cert: OpenSSL::X509::Certificate.new(File.read('certificate.pem')), 
+              ssl_cert_key: OpenSSL::PKey::RSA.new(File.read('server.key'))
+            ) 
+            @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')
             binding.pry
             export_xml(self.render, 'teste-signed.xml')
-            response = client.call(:enviar_lote_rps_sincrono, xml: self.render)
+            response = client.call(:recepcionar_lote_rps, xml: self.render)
             data = response.body
 
             puts data
-            data = data[:enviar_lote_rps_sincrono_response]                
-            data = data[:enviar_lote_rps_sincrono_result]
+            data = data[:recepcionar_lote_rps_response]                
+            data = data[:recepcionar_lote_rps_result]
             #Tratar retorno com erros
             xml = Nokogiri::XML(data)
             if xml.xpath("//MensagemRetorno").empty?

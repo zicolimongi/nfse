@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-    xmlns:tem="http://tempuri.org/">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Header>
-        <tem:cabecalho versao="100">
-            <tem:versaoDados>1.00</tem:versaoDados>
-        </tem:cabecalho>
+        <cabecalho versao="100">
+            <versaoDados>1.00</versaoDados>
+        </cabecalho>
     </soapenv:Header>
     <soapenv:Body>
-        <tem:EnviarLoteRpsSincrono>
-            <tem:xmlEnvio><![CDATA[{{{xml_lote}}}]]></tem:xmlEnvio>
-        </tem:EnviarLoteRpsSincrono>
+        <ns2:RecepcionarLoteRpsRequest>
+            <xmlEnvio><![CDATA[{{{xml_lote}}}]]></xmlEnvio>
+        </ns2:RecepcionarLoteRpsRequest>
     </soapenv:Body>
 </soapenv:Envelope>
