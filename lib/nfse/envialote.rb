@@ -16,8 +16,8 @@ module Nfse
             wsdl = get_wsdl[@code_ibge]          
             client = Savon.client(
               wsdl: wsdl, 
-              ssl_cert: OpenSSL::X509::Certificate.new(File.read('certificate.pem')), 
-              ssl_cert_key: OpenSSL::PKey::RSA.new(File.read('server.key'))
+              ssl_cert: OpenSSL::X509::Certificate.new(File.read('cert.pem')), 
+              ssl_cert_key: OpenSSL::PKey::RSA.new(File.read('cert.pem'))
             ) 
             binding.pry
             @xml_lote = self.assinar_xml(@lote.render, 'cert.pem')
