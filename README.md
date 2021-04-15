@@ -16,7 +16,7 @@ lote = Nfse::Envio::Lote.new( id: '5abc',
 rps = Nfse::Envio::Rps.new(numero: nf_number, 
                                 serie: 1, 
                                 tipo: 2,
-                                data_emissao: '2019-06-29', 
+                                data_emissao: '2019-06-29T00:00:00', 
                                 data_competencia: '2019-06-29',
                                 icentivo_fiscal: '2', 
                                 simples_nacional: '1')
